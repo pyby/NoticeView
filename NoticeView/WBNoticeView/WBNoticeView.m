@@ -9,6 +9,8 @@
 #import "WBNoticeView.h"
 #import "WBNoticeView+ForSubclassEyesOnly.h"
 
+static NSBundle *s_bundle = nil;
+
 @interface WBNoticeView ()
 
 @property(nonatomic, strong) UIButton *dismissButton;
@@ -47,6 +49,27 @@
 @synthesize dismissalBlock = _dismissalBlock;
 @synthesize dismissalBlockWithOptionalDismiss = _dismissalBlockWithOptionalDismiss;
 @synthesize floating = _floating;
+
++ (void)initialize
+{
+    if (self != [WBNoticeView class]) {
+        return;
+    }
+    
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"NoticeView" ofType:@"bundle"];
+    s_bundle = [NSBundle bundleWithPath:bundlePath];
+}
+
++ (void)setBundle:(NSBundle *)bundle
+{
+    s_bundle = bundle;
+}
+
++ (NSBundle *)bundle
+{
+    return s_bundle;
+}
+
 
 - (id)initWithView:(UIView *)view title:(NSString *)title
 {

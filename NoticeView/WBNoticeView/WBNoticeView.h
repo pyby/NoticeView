@@ -18,6 +18,16 @@ typedef enum WBNoticeViewSlidingMode {
  */
 @interface WBNoticeView : NSObject
 
+/**
+ Set the resource bundle to use. Default is NoticeView.bundle in main bundle
+ */
++ (void)setBundle:(NSBundle *)bundle;
+
+/**
+The resource bundle to use
+*/
++ (NSBundle *)bundle;
+
 ///----------------------------
 /// @name Initializing a Notice
 ///----------------------------

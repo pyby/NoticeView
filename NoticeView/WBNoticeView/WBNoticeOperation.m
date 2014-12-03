@@ -18,6 +18,10 @@
 
 @implementation WBNoticeOperation
 
+@synthesize executing;
+@synthesize cancelled;
+@synthesize finished;
+
 - (void)start
 {
     if (self.cancelled) {

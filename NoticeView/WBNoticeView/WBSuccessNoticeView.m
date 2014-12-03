@@ -27,7 +27,7 @@
     CGFloat viewWidth = self.view.bounds.size.width;
     
     // Locate the images
-    NSString *path = [[[NSBundle mainBundle]resourcePath]stringByAppendingPathComponent:@"NoticeView.bundle"];
+    NSString *path = [[WBNoticeView bundle] resourcePath];
     NSString *noticeIconImageName = [path stringByAppendingPathComponent:@"notice_success_icon.png"];
     
     NSInteger numberOfLines = 1;
